@@ -1,5 +1,5 @@
 angular.module('yrApp', ['ngRoute']).config(function ($routeProvider){
-	$routeProvider.
+  $routeProvider.
     when('/', {
       templateUrl: '../views/home.html',
       controller: 'HomeCtrl'
