@@ -87,7 +87,7 @@ module.exports = function (grunt) {
           src: [
             '*.{png,html}',
             'images/{,*/}*.{gif,webp}',
-            'styles/fonts/*',
+            'fonts/*',
             'views/{,*/}*.html'
           ]
         }]
