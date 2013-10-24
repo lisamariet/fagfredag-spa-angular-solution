@@ -6,8 +6,10 @@ Dette er et repository med eksempelkode fra fagfredag i Webstep Fokus hvor tema 
 For å kjøre igang, installer node (ned package manager) fra http://nodejs.org/.
 kjør så: 
 
+```
 git clone <repo> fagdag
 cd fagdag
 npm install -g grunt-cli
 npm install
 grunt
+```
