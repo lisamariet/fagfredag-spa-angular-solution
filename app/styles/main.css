@@ -1,0 +1,21 @@
+body{
+    margin-top:20px;
+}
+h1.panel-title{
+    font-size:60px;
+}
+.temperature span{
+    font-size:100px;
+}
+img{
+    height:30px;
+    width:30px;
+}
+.weather img{
+    height:200px;
+    width:200px;
+
+}
+.info {
+    font-size:20px;
+}
