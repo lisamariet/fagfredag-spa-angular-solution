@@ -3,7 +3,14 @@
 
 module.exports = function (grunt) {
   var http = require('http'),
-    to_json = require('xmljson').to_json;
+    xml2js = require('xml2js'),
+    parser = new xml2js.Parser({
+      explicitArray:false,
+      mergeAttrs:true
+    });
+
+
+  
 
   var proxy = function (req, res, next){
     if(req.url.indexOf('/yr/') == 0){
@@ -16,12 +23,12 @@ module.exports = function (grunt) {
           body += chunk;
         });
         xmlRes.on('end', function (){
-          to_json(body, function (error, data){
+          parser.parseString(body, function (err, result){
             res.writeHead(200, {
               'Content-Type': 'application/json; charset=utf-8',
               'Access-Control-Allow-Origin': 'http://localhost'
             });
-            res.end(JSON.stringify(data));
+            res.end(JSON.stringify(result));
           });
         });
       });
