@@ -2,41 +2,6 @@
 'use strict';
 
 module.exports = function (grunt) {
-  var http = require('http'),
-    xml2js = require('xml2js'),
-    parser = new xml2js.Parser({
-      explicitArray:false,
-      mergeAttrs:true
-    });
-
-
-  
-
-  var proxy = function (req, res, next){
-    if(req.url.indexOf('/yr/') == 0){
-      var body = '';
-      http.get({
-        host: 'www.yr.no',
-        path: req.url.slice(3).replace('json','xml')
-      }, function(xmlRes){
-        xmlRes.on('data', function(chunk){
-          body += chunk;
-        });
-        xmlRes.on('end', function (){
-          parser.parseString(body, function (err, result){
-            res.writeHead(200, {
-              'Content-Type': 'application/json; charset=utf-8',
-              'Access-Control-Allow-Origin': 'http://localhost'
-            });
-            res.end(JSON.stringify(result));
-          });
-        });
-      });
-    }else{
-      next();
-    }
-  }
-
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
@@ -62,13 +27,7 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: 'app',
-          livereload: 35729,
-          middleware: function(connect, options){
-              return [
-                proxy,
-                connect.static(options.base)
-              ];
-          }
+          livereload: 35729
         }
       }
     }

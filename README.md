@@ -13,3 +13,13 @@ npm install -g grunt-cli
 npm install
 grunt
 ```
+
+For å hente data i JSON-format og med riktige CORS-headere, bruk http://yr-proxy.tosh.no med samme URL som til yr, f.eks:
+
+```
+http://yr-proxy.tosh.no/sted/Norge/Telemark/Sauherad/Gvarv/varsel.xml
+```
+eller 
+```
+http://yr-proxy.tosh.no/sted/Norge/Telemark/Sauherad/Gvarv/varsel.json
+```
