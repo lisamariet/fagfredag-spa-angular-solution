@@ -11,8 +11,24 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
   <body ng-app="yrApp">
-
-    <div class="container" ng-view=""></div>
+      <div class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
+          <div class="container">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Yr App</a>
+              </div>
+              <div class="navbar-collapse collapse" nav-tabs>
+                  <ul class="nav navbar-nav">
+                      <li ng-class="{active:isActive('/')}"><a href="#/">Mine steder</a></li>
+                  </ul>
+              </div><!--/.nav-collapse -->
+          </div>
+      </div>
+    <div class="container" id="container" ng-view></div>
 
     <script src="lib/jquery/jquery-1.10.2.js"></script>
     <script src="lib/angular/angular.js"></script>
@@ -20,8 +36,9 @@
     <script src="lib/bootstrap/js/bootstrap.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/home-controller.js"></script>
-    <script src="scripts/services/sample-service.js"></script>
+    <script src="scripts/controllers/myplaces-controller.js"></script>
+    <script src="scripts/controllers/nav-controller.js"></script>
+    <script src="scripts/services/yr-service.js"></script>
 </body>
 </html>
 
