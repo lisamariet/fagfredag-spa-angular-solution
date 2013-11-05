@@ -16,6 +16,8 @@ angular.module('yrApp').directive('forecast', function () {
 
 angular.module('yrApp').controller('ForecastDirectiveCtrl', function ($scope, yrService) {
     'use strict';
+    $scope.isInitialized = false;
+
     yrService.getForecast({
         county: $scope.county,
         municipality: $scope.municipality,
@@ -24,5 +26,6 @@ angular.module('yrApp').controller('ForecastDirectiveCtrl', function ($scope, yr
         $scope.weather = weather;
         $scope.currentPeriod = weather.periods[0];
         $scope.periods = weather.periods.slice(1, 5);
+        $scope.isInitialized = true;
     });
 });

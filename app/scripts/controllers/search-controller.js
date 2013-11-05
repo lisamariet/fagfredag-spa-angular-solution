@@ -8,7 +8,7 @@ angular.module('yrApp').controller('SearchCtrl', function ($scope, $rootScope, s
 
     $scope.places = function(query) {
         return searchService.search(query).then(function(places){
-          return places.results;
+          return places.results.slice(0, 20);
       });
     };
 });
