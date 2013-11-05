@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <span class="pull-right"><a class="btn btn-danger" ng-click="onRemove()"><i class="glyphicon glyphicon-trash"></i> Slett</a></span>
+        <h1 class="panel-title">Været for {{weather.place}}, {{weather.country}}</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-1 temperature">
+                <span>{{currentPeriod.temperature}}°</span>
+            </div>
+            <div class="col-sm-4 weather">
+                <img ng-src="{{currentPeriod.symbolUrl}}" />
+            </div>
+            <div class="col-sm-5">
+                <div class="info">
+                    <p>Nedbør:</p>
+                    <p>{{currentPeriod.precipitationMin}} mm – {{currentPeriod.precipitationMax}} mm</p>
+                </div>
+                <div class="info">
+                    <p>Vind:</p>
+                </div>
+                <div class="info">
+                    <p>{{currentPeriod.windType}}, {{currentPeriod.windSpeed}} m/s fra {{currentPeriod.windDirection | lowercase}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row container">
+            <h3>I morgen, {{periods[0].from | date:'EEEE, dd/MM/yyyy'}}</h3>
+            <table class="table">
+                <tr>
+                    <th>Tid</th>
+                    <th>Varsel</th>
+                    <th>Temperatur</th>
+                    <th>Nedbør</th>
+                    <th>Vind</th>
+                </tr>
+                <tr ng-repeat="period in periods">
+                    <td>kl {{period.from | date:'HH'}} - {{period.to | date:'HH'}}</td>
+                    <td><img ng-src="{{period.symbolUrl}}" /></td>
+                    <td>{{period.temperature}}°</td>
+                    <td>{{period.precipitationMin}} mm – {{period.precipitationMax}} mm</td>
+                    <td>{{period.windType}}, {{period.windSpeed}} m/s fra {{period.windDirection | lowercase}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</div>

@@ -1,44 +1,63 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
-  <body ng-app="yrApp">
-      <div class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
-          <div class="container">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">Yr App</a>
-              </div>
-              <div class="navbar-collapse collapse" nav-tabs>
-                  <ul class="nav navbar-nav">
-                      <li ng-class="{active:isActive('/')}"><a href="#/">Mine steder</a></li>
-                  </ul>
-              </div><!--/.nav-collapse -->
-          </div>
+<body ng-app="yrApp">
+  <div class="navbar navbar-default navbar-fixed-top" ng-controller="NavCtrl">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Yr App</a>
       </div>
-    <div class="container" id="container" ng-view></div>
+      <div class="navbar-collapse collapse" nav-tabs>
+        <ul class="nav navbar-nav">
+          <li ng-class="{active:isActive('/')}"><a href="#/">Mine steder</a></li>
+        </ul>
 
-    <script src="lib/jquery/jquery-1.10.2.js"></script>
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular/angular-route.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <div ng-controller="SearchCtrl">
+              <input class="form-control" type="search" 
+                    ng-model="selectedPlace" 
+                    typeahead="place as place.name for place in places($viewValue)"
+                    typeahead-on-select="placeSelected()" 
+                    typeahead-wait-ms="100" placeholder="Finn steder...">
+            </div>
+          </div>
+        </form>
+      </div>
 
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/myplaces-controller.js"></script>
-    <script src="scripts/controllers/nav-controller.js"></script>
-    <script src="scripts/services/yr-service.js"></script>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+  <div class="container" id="container" ng-view></div>
+
+  <script src="lib/jquery/jquery-1.10.2.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-route.js"></script>
+  <script src="lib/ui-bootstrap/ui-bootstrap-0.6.0.min.js"></script>
+  <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.6.0.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.js"></script>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/myplaces-controller.js"></script>
+  <script src="scripts/controllers/nav-controller.js"></script>
+  <script src="scripts/controllers/search-controller.js"></script>
+  <script src="scripts/services/yr-service.js"></script>
+  <script src="scripts/services/search-service.js"></script>
+  <script src="scripts/directives/forecast.js"></script>
 </body>
 </html>
 

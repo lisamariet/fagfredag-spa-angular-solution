@@ -18,7 +18,7 @@ angular.module('yrApp').factory('yrService', function ($http, $q){
     };
 
 	return {
-		getWeather: function (options) {
+		getForecast: function (options) {
             var deferred = $q.defer(),
                 periods = [],
                 url;
