@@ -3,7 +3,7 @@ angular.module('yrApp').controller('MyPlacesCtrl', function ($scope, $rootScope)
     $scope.places = [];
     
     $rootScope.$on('placeAdded', function (event, place) {
-        $scope.places.push(place);
+        $scope.places.unshift(place);
     });
 
     $scope.remove = function (place) {

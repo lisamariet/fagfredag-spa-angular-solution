@@ -3,6 +3,7 @@ angular.module('yrApp').controller('SearchCtrl', function ($scope, $rootScope, s
 
     $scope.placeSelected = function (place) {
         $rootScope.$broadcast('placeAdded', $scope.selectedPlace);
+        $scope.selectedPlace = null;
     };
 
     $scope.places = function(query) {
