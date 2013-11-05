@@ -16,7 +16,6 @@ angular.module('yrApp').directive('forecast', function () {
 
 angular.module('yrApp').controller('ForecastDirectiveCtrl', function ($scope, yrService) {
     'use strict';
-    $scope.showTomorrow = true;
     yrService.getForecast({
         county: $scope.county,
         municipality: $scope.municipality,

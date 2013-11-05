@@ -25,6 +25,12 @@
             </div>
         </div>
         <div class="row container">
+            <a ng-click="isTomorrowVisible = !isTomorrowVisible" class="btn btn-default">
+                <span ng-if="isTomorrowVisible"><i class="glyphicon glyphicon-minus"></i> Skjul været for i morgen</span>
+                <span ng-if="!isTomorrowVisible"><i class="glyphicon glyphicon-plus"></i> Vis været for i morgen</span>
+            </a>
+        </div>
+        <div ng-if="isTomorrowVisible" class="row container">
             <h3>I morgen, {{periods[0].from | date:'EEEE, dd/MM/yyyy'}}</h3>
             <table class="table">
                 <tr>
