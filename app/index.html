@@ -31,7 +31,7 @@
             <div ng-controller="SearchCtrl">
               <input class="form-control" type="search" 
                     ng-model="selectedPlace" 
-                    typeahead="place as place.name for place in places($viewValue)"
+                    typeahead="place as place.name + ' (' +place.type +')' for place in places($viewValue)"
                     typeahead-on-select="placeSelected()" 
                     typeahead-wait-ms="100" placeholder="Finn steder...">
             </div>
